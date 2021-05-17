@@ -191,11 +191,121 @@ function findLongestWord(string) {
 }
 
 // ============ Задание 22 =============
+function createArrayOfNumbers(min, max) {
+  const numbers = [];
+
+  for (let i = min; i <= max; i += 1) {
+    numbers.push(i);
+  }
+
+  return numbers;
+}
 
 // ============ Задание 23 =============
+function filterArray(numbers, value) {
+  let array = [];
+  for (const number of numbers) {
+    if (number > value) {
+      array.push(number);
+    }
+    numbers = array;
+  }
+
+  return numbers;
+}
 
 // ============ Задание 24 =============
+function checkFruit(fruit) {
+  const fruits = ["apple", "plum", "pear", "orange"];
+
+  return fruits.includes(fruit);
+}
 
 // ============ Задание 25 =============
+function getCommonElements(array1, array2) {
+  const array = [];
+
+  for (let i = 0; i < array1.length; i += 1) {
+    if (array2.includes(array1[i])) {
+      array.push(array1[i]);
+    }
+  }
+
+  return array;
+}
 
 // ============ Задание 26 =============
+function calculateTotalPrice(order) {
+  let total = 0;
+
+  for (const value of order) {
+    total += value;
+  }
+
+  return total;
+}
+
+// ============ Задание 27 =============
+function filterArray(numbers, value) {
+  const filteredNumbers = [];
+
+  for (const number of numbers) {
+    if (number > value) {
+      filteredNumbers.push(number);
+    }
+  }
+
+  return filteredNumbers;
+}
+
+// ============ Задание 28 =============
+const a = 3 % 3;
+const b = 4 % 3;
+const c = 11 % 4;
+const d = 12 % 7;
+const e = 8 % 6;
+
+// ============ Задание 29 =============
+function getEvenNumbers(start, end) {
+  const array = [];
+
+  for (let i = start; i <= end; i += 1) {
+    if (i % 2 === 0) {
+      array.push(i);
+    }
+  }
+  return array;
+}
+
+// ============ Задание 30 =============
+const start = 6;
+const end = 27;
+let number;
+
+for (let i = start; i < end; i += 1) {
+  if (i % 5 === 0) {
+    number = i;
+    break;
+  }
+}
+
+// ============ Задание 31 =============
+function findNumber(start, end, divisor) {
+  let number;
+
+  for (let i = start; i < end; i += 1) {
+    if (i % divisor === 0) {
+      return i;
+    }
+  }
+}
+
+// ============ Задание 32 =============
+function includes(array, value) {
+  for (const arr of array) {
+    if (arr === value) {
+      return true;
+    }
+  }
+  return false;
+}
