@@ -500,19 +500,137 @@ function addOverNum(firstNumber, ...args) {
 }
 
 // ============ Задание 33 ============
+function findMatches(...arg) {
+  const matches = []; 
+  
+  for (let i = 0; i < arg.length; i +=1) {
+    
+    if (arg[0].includes(arg[i])) {
+      matches.push(arg[i]); 
+    }
+  }
+
+  
+  return matches;
+}
 
 // ============ Задание 34 ============
+const bookShelf = {
+  
+  books: ['The last kingdom', 'The guardian of dreams'],
+  getBooks() {
+    return 'Returning all books';
+  },
+  addBook(bookName) {
+    return `Adding book ${bookName}`;
+  },
+  removeBook(bookName) {
+    return `Deleting book ${bookName}`;
+  },
+  updateBook(oldName, newName) {
+    return `Updating book ${oldName} to ${newName}`;
+  },
+  
+};
 
 // ============ Задание 35 ============
+const bookShelf = {
+  books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+  updateBook(oldName, newName) {
+    const index = this.books.indexOf(oldName);
+    return this.books.splice(index, 1, newName);
+   
+  },
+};
+
 
 // ============ Задание 36 ============
+const atTheOldToad = {
+  potions: []
+ };
+ 
 
 // ============ Задание 37 ============
+const atTheOldToad = {
+  
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+ getPotions() {
+   return this.potions;
+ },
+};
 
 
 // ============ Задание 38 ============
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  addPotion(potionName) {
+    return this.potions.push(potionName);
+  },
+};
+
 
 // ============ Задание 39 ============
+const atTheOldToad = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  removePotion(potionName) {
+     const index = this.potions.indexOf(potionName);
+    return this.potions.splice(index, 1);
+  },
+};
+
 
 // ============ Задание 40 ============
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  updatePotionName(oldName, newName) {
+     const index = this.potions.indexOf(oldName);
+    return this.potions.splice(index, 1, newName);
+  },
+};
+
+
+// ============ Задание 41 ============
+const atTheOldToad = {
+  potions: [
+    { name: 'Speed potion', price: 460 },
+    { name: 'Dragon breath', price: 780 },
+    { name: 'Stone skin', price: 520 },
+  ],
+ 
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(potionName) {
+    const { potions } = this;
+    const { name } = potionName;
+    for (let i = 0; i < potions.length; i += 1) {
+      if (potions[i].name === name) {
+        return `Potion ${name} is already equipped!`;
+      }
+      potions.push(potionName);
+    }
+  },
+  removePotion(potionName) {
+    const { potions } = this;
+    for (let i = 0; i < potions.length; i += 1) {
+      if (potions[i].name === potionName) {
+        potions.splice(i, 1);
+        return potions;
+      }
+    }
+    return `Potion ${potionName} is not in inventory!`;
+  },
+  updatePotionName(oldName, newName) {
+    const { potions } = this;
+    for (let i = 0; i < potions.length; i += 1) {
+      if (potions[i].name === oldName) {
+        potions[i].name = newName;
+        return potions;
+      }
+    }
+    return `Potion ${oldName} is not in inventory!`;
+  },
+  
+};
+
 
