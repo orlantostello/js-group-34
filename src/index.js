@@ -284,29 +284,146 @@ const totalPlayTime = playtimes.reduce((ak, number) => {
 const averagePlayTime = totalPlayTime / playtimes.length;
 
 // ============ Задание 31 ===========
+const players = [
+  { name: "Манго", playtime: 1270, gamesPlayed: 4 },
+  { name: "Поли", playtime: 469, gamesPlayed: 2 },
+  { name: "Аякс", playtime: 690, gamesPlayed: 3 },
+  { name: "Киви", playtime: 241, gamesPlayed: 1 },
+];
+
+const totalAveragePlaytimePerGame = players.reduce((total, player) => {
+  return total + player.playtime / player.gamesPlayed;
+}, 0);
 
 // ============ Задание 32 ===========
+const calculateTotalBalance = (users) => {
+  return users.reduce((total, user) => {
+    return total + user.balance;
+  }, 0);
+};
 
 // ============ Задание 33 ===========
+const getTotalFriendCount = (users) => {
+  return users.reduce((allfreinds, array) => {
+    allfreinds.push(...array.friends);
+    return allfreinds;
+  }, []).length;
+};
 
 // ============ Задание 34 ===========
+const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+const authors = [
+  "Ли Танит",
+  "Бернард Корнуэлл",
+  "Роберт Шекли",
+  "Федор Достоевский",
+];
+
+const ascendingReleaseDates = [...releaseDates].sort();
+
+const alphabeticalAuthors = [...authors].sort();
 
 // ============ Задание 35 ===========
+const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+
+const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
+
+const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
 
 // ============ Задание 36 ===========
+const authors = [
+  "Ли Танит",
+  "Бернард Корнуэлл",
+  "Роберт Шекли",
+  "Федор Достоевский",
+  "Говард Лавкрафт",
+];
+
+const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+
+const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
 
 // ============ Задание 37 ===========
+const books = [
+  { title: "Последнее королевство", author: "Бернард Корнуэлл", rating: 8.38 },
+  { title: "На берегу спокойных вод", author: "Роберт Шекли", rating: 8.51 },
+  { title: "Сон смешного человека", author: "Федор Достоевский", rating: 7.75 },
+  { title: "Красна как кровь", author: "Ли Танит", rating: 7.94 },
+  { title: "Враг Божий", author: "Бернард Корнуэлл", rating: 8.67 },
+];
+
+const sortedByAuthorName = [...books].sort((firstAuthor, secondAuthor) =>
+  firstAuthor.author.localeCompare(secondAuthor.author)
+);
+
+const sortedByReversedAuthorName = [...books].sort(
+  (firstAuthor, secondAuthor) =>
+    secondAuthor.author.localeCompare(firstAuthor.author)
+);
+
+const sortedByAscendingRating = [...books].sort(
+  (firstRating, secondRating) => firstRating.rating - secondRating.rating
+);
+
+const sortedByDescentingRating = [...books].sort(
+  (firstRating, secondRating) => secondRating.rating - firstRating.rating
+);
 
 // ============ Задание 38 ===========
+const sortByAscendingBalance = (users) => {
+  return users.sort(
+    (firstBalance, secondBalance) =>
+      firstBalance.balance - secondBalance.balance
+  );
+};
 
 // ============ Задание 39 ===========
+const sortByDescendingFriendCount = (users) => {
+  return [...users].sort((a, b) => b.friends.length - a.friends.length);
+};
 
 // ============ Задание 40 ===========
+const sortByName = (users) => {
+  return [...users].sort((firstName, secondName) =>
+    firstName.name.localeCompare(secondName.name)
+  );
+};
 
 // ============ Задание 41 ===========
+const books = [
+  { title: "Последнее королевство", author: "Бернард Корнуэлл", rating: 8.38 },
+  { title: "На берегу спокойных вод", author: "Роберт Шекли", rating: 8.51 },
+  { title: "Сон смешного человека", author: "Федор Достоевский", rating: 7.75 },
+  { title: "Красна как кровь", author: "Ли Танит", rating: 8.14 },
+  { title: "Сны В Ведьмином Доме", author: "Говард Лавкрафт", rating: 8.67 },
+];
+const MIN_BOOK_RATING = 8;
+
+const names = books
+  .filter((book) => book.rating > MIN_BOOK_RATING)
+  .map((book) => book.author)
+  .sort((a, b) => a.localeCompare(b));
 
 // ============ Задание 42 ===========
+const getNamesSortedByFriendCount = (users) => {
+  return [...users]
+    .sort((a, b) => a.friends.length - b.friends.length)
+    .map((user) => user.name);
+};
 
 // ============ Задание 43 ===========
+const getSortedFriends = (users) => {
+  return [...users]
+    .flatMap((user) => user.friends)
+    .filter((friend, index, array) => array.indexOf(friend) === index)
+    .sort((a, b) => a.localeCompare(b));
+};
 
 // ============ Задание 44 ===========
+const getTotalBalanceByGender = (users, gender) => {
+  return [...users]
+    .filter((user) => user.gender === gender)
+    .reduce((total, user) => {
+      return total + user.balance;
+    }, 0);
+};
